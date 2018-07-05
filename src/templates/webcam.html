@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 align='center'> Facial Expression Detection </h1>
+<p align = 'center'> This app uses a convolutional neural network to predict your emotion.
+    To try it out you must have a webcam. Just take a picture click the snap picture button.
+    A few seconds later the application should display its prediction!
+</p>
+<h3 align='center'>Take a clear picture with your face taking up a large portion of the frame!</h3>
+<script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+
+<div id="my_camera" style="width:400px; height:400px;" class = "webcam_display"></div>
+
+<form id = "webcam_capture" action = "" method = "post" >
+     <input id="capture_image" type="hidden" name="capture_image" value=""/>
+</form>
+
+
+<script language="JavaScript">
+    Webcam.attach('#my_camera');
+    function take_snapshot() {
+        Webcam.snap(function(data_uri) {
+
+            var raw_image_data = data_uri.replace(/^data\:image\/\w+\;base64\,/, '');
+            document.getElementById('capture_image').value = raw_image_data;
+            document.getElementById('webcam_capture').submit();
+
+        });
+    }
+</script>
+<div class="wrapper">
+    <a href="javascript:void(take_snapshot())" id = 'snap_pic'><h4>Snap Picture</h4></a>
+</div>
+{% endblock %}

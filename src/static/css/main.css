@@ -1,0 +1,15 @@
+.wrapper{
+    text-align: center;
+}
+.webcam_display{
+    margin: auto;
+}
+.user_image{
+    margin: auto;
+}
+.prediction_probs{
+    margin: auto;
+}
+#refresh{
+    margin: 50px;
+}

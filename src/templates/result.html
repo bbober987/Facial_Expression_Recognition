@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 align='center'>Your Emotion is {{prediction}}</h1>
+  <div id="user_image" style="width:400px; height:400px;" class = "user_image"></div>
+  <h3 align='center'>Probability of Emotions:</h3>
+  <div id="prediction_probs" style="width:600px; height:400px;" class = "prediction_probs"></div>
+<div class="text-center", id = 'refresh'>
+    <input type="button" class="btn btn-primary" value="Try Again!" onclick="location.href = '.';">
+  </div>
+  <script>
+    var data = [
+      {
+        z: {{z}},
+        type: 'heatmap',
+         showscale: false,
+        colorscale: 'Greys'
+      }
+    ];
+  var layout = {
+          xaxis:{
+              zeroline:false,
+              showline:false,
+              ticks:'',
+              showticklabels:false
+              },
+          yaxis:{
+              zeroline:false,
+              showline:false,
+              ticks:'',
+              showticklabels:false
+              },
+          margin: {
+              t: 20, //top margin
+              l: 20, //left margin
+              r: 20, //right margin
+              b: 20 //bottom margin
+              }
+      }
+    Plotly.newPlot('user_image', data,layout)
+
+
+  </script>
+  <script>
+    var data = [
+      {
+        x: ['Angry', 'Disgusted', 'Afraid', 'Happy', 'Sad', 'Surprised', 'Neutral'],
+        y: {{prediction_probs}},
+        type: 'bar'
+      }
+    ];
+    Plotly.newPlot('prediction_probs', data, {
+          margin: {
+              t: 20, //top margin
+              l: 20, //left margin
+              r: 20, //right margin
+              b: 20 //bottom margin
+              }
+              })
+  </script>
+{% endblock %}
