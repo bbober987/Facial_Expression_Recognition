@@ -9,4 +9,5 @@ After getting a reasonably accurate model (61% on a test set -- there is still p
 The idea is the user can take a picture of themselves on a webcam. I use an out of the box face detector in Open CV to crop the user's face and then resize that image appropriately and send it through the last model that was built in the jupyter notebooks.  
 The web app was created using Flask and deployed on pythonanywhere.com, and the code for the app is in the src folder.
 
+
 You can check out the website [here](bbober.pythonanywhere.com)
