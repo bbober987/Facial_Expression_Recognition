@@ -10,4 +10,4 @@ The idea is the user can take a picture of themselves on a webcam. I use an out 
 The web app was created using Flask and deployed on pythonanywhere.com, and the code for the app is in the src folder.
 
 
-You can check out the website [here](bbober.pythonanywhere.com)
+You can check out the website [here](https://bbober.pythonanywhere.com)
